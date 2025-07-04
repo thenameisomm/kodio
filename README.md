@@ -84,17 +84,6 @@ kodio/
 
 ---
 
-## 📸 Screenshots (Optional)
-
-_Add screenshots of your login page, admin dashboard, or repository list here._
-
-```markdown
-![Login](screenshots/login.png)
-![Admin Panel](screenshots/admin.png)
-```
-
----
-
 ## 🧾 .gitignore Highlights
 
 Included to prevent pushing unwanted files:
