@@ -1,193 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    .text-blk {
-        margin: 0;
-        padding: 0;
-        line-height: 25px;
-    }
-    
-    .responsive-container-block {
-        min-height: 75px;
-        height: fit-content;
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        justify-content: flex-start;
-    }
-    
-    .responsive-container-block.bigContainer {
-        padding: 10px 30px;
-        background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb29.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    
-    .responsive-container-block.Container {
-        max-width: 800px;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        margin: 150px auto;
-        background-color: white;
-        border-radius: 10px;
-    }
-    
-    .text-blk.heading {
-        font-size: 36px;
-        line-height: 45px;
-        font-weight: 800;
-        margin-bottom: 30px;
-    }
-    
-    .text-blk.subHeading {
-        text-align: center;
-        font-size: 18px;
-        line-height: 26px;
-        margin-bottom: 60px;
-    }
-    
-    .socialIcon {
-        width: 33px;
-        height: 33px;
-    }
-    
-    .social-icons-container {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .social-icon {
-        margin: 0 20px;
-    }
-    
-    .social-icon:hover {
-        cursor: pointer;
-    }
-    
-    @media (max-width: 768px) {
-        .text-blk.heading {
-            font-size: 55px;
-            line-height: 65px;
-        }
-    
-        .text-blk.subHeading {
-            font-size: 18px;
-            line-height: 24px;
-        }
-    
-        .socialIcon {
-            width: 20px;
-            height: 20px;
-        }
-    
-        .text-blk.subHeading {
-            line-height: 27px;
-        }
-    
-        .text-blk.heading {
-            font-size: 32px;
-            line-height: 40px;
-            margin-bottom: 20px;
-        }
-    
-        .social-icon {
-            margin: 0 15px;
-        }
-    }
-    
-    @media (max-width: 500px) {
-        .responsive-container-block.bigContainer {
-            padding: 10px 20px;
-        }
-    
-        .text-blk.heading {
-            font-size: 45px;
-            line-height: 55px;
-        }
-    
-        .text-blk.subHeading {
-            font-size: 14px;
-            line-height: 22px;
-            margin-bottom: 30px;
-        }
-    
-        .social-icons-container {
-            flex-wrap: wrap;
-        }
-    
-        .text-blk.subHeading {
-            font-size: 16px;
-            line-height: 23px;
-        }
-    
-        .text-blk.heading {
-            font-size: 26px;
-            line-height: 30px;
-        }
-    
-        .social-icon {
-            margin: 0 10px;
-        }
-    }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
-    
-    *,
-    *:before,
-    *:after {
-        box-sizing: border-box;
-    }
-    
-    body {
-        margin: 0;
-        font-family: Nunito, sans-serif;
-    }
-    </style>
-</head>
-<body>
-    <div class="responsive-container-block bigContainer">
-        <div class="responsive-container-block Container">
-            <p class="text-blk heading">Contact Us</p>
-            <p class="text-blk subHeading">
-            </p>
-            <div class="contact-info">
-                <i class="fas fa-phone-alt"></i>
-                <p>Phone: 9857422854</p>
-            </div>
-            <div class="contact-info">
-                <i class="fas fa-envelope"></i>
-                <p>Email: kodio@gmail.com</p>
-            </div>
-            <div class="contact-info">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Address: 123 Anywhere St., Any City</p>
-            </div>
-            <div class="social-media">
-                <i class="fab fa-instagram"></i>
-                <p>Instagram: @kodio</p>
-            </div>
-            <div class="social-icons-container">
-                <a class="social-icon">
-                    <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb33.png">
-                </a>
-                <a class="social-icon">
-                    <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb34.png">
-                </a>
-                <a class="social-icon">
-                    <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb35.png">
-                </a>
-                <a class="social-icon">
-                    <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb36.png">
-                </a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>Contact Us</title>  
+  <style>  
+   body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #f4f4f4;  
+   }  
+  .header {  
+    background-color: #004658;  
+    padding: 20px;  
+    text-align: center;  
+    animation: fadeIn 2s;  
+   }  
+  .header h1 {  
+    color: #FFFFFF;  
+    font-size: 36px;  
+    margin: 0;  
+   }  
+  .section {  
+    max-width: 1000px;  
+    margin: 40px auto;  
+    padding: 20px;  
+    background-color: #FFFFFF;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+   }  
+  .contact-info, .faq, .contact-form {  
+    background-color: #F7F7F7;  
+    padding: 20px;  
+    border-radius: 10px;  
+    text-align: center;  
+   }  
+  .contact-info h2, .faq h2, .contact-form h2 {  
+    font-size: 24px;  
+    margin-bottom: 10px;  
+    color: #004658;  
+    animation: fadeIn 2s;  
+   }  
+  .contact-info p, .faq p, .contact-form p {  
+    font-size: 18px;  
+    color: #333;  
+    line-height: 1.6;  
+   }  
+  .contact-info a {  
+    color: #004658;  
+    text-decoration: none;  
+   }  
+  .contact-info a:hover {  
+    text-decoration: underline;  
+   }  
+  .social-media a {  
+    font-size: 24px;  
+    margin: 0 10px;  
+    color: #004658;  
+    text-decoration: none;  
+    transition: color 0.3s;  
+   }  
+  .social-media a:hover {  
+    color: #006a75;  
+   }  
+  .faq {  
+    margin-top: 40px;  
+   }  
+  .faq-item {  
+    text-align: left;  
+    margin-bottom: 20px;  
+   }  
+  .faq-item h3 {  
+    font-size: 20px;  
+    margin-bottom: 10px;  
+    color: #004658;  
+   }  
+  .contact-form {  
+    margin-top: 40px;  
+   }  
+  .contact-form form {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+   }  
+  .contact-form input, .contact-form textarea {  
+    width: 100%;  
+    max-width: 600px;  
+    padding: 10px;  
+    margin: 10px 0;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+    box-sizing: border-box;  
+   }  
+  .contact-form button {  
+    background-color: #004658;  
+    color: #fff;  
+    border: none;  
+    padding: 10px 20px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;  
+   }  
+  .contact-form button:hover {  
+    background-color: #00374a;  
+   }  
+  .map {  
+    margin-top: 40px;  
+    text-align: center;  
+   }  
+  @keyframes fadeIn {  
+    0% {  
+      opacity: 0;  
+    }  
+    100% {  
+      opacity: 1;  
+    }  
+   }  
+  </style>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />  
+</head>  
+<body>  
+  <header class="header">  
+   <h1>Contact Us</h1>  
+  </header>  
+  <section class="section contact-info">  
+   <h2>Get in Touch</h2>  
+   <p>Have a question or want to learn more about our platform? We'd love to hear from you!</p>  
+   <p><strong>Address:</strong> 123 Main St, Anytown, Jalgoan</p>  
+   <p><strong>Phone:</strong> 555-555-5555</p>  
+   <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>  
+   <p><strong>Hours of Operation:</strong> Monday - Friday, 9am - 5pm EST</p>  
+   <div class="social-media">  
+    <a href="https://instagram.com/kodio" target="_blank"><i class="fab fa-instagram"></i></a>  
+    <a href="https://facebook.com/kodio" target="_blank"><i class="fab fa-facebook-f"></i></a>  
+    <a href="https://twitter.com/kodio" target="_blank"><i class="fab fa-twitter"></i></a>  
+    <a href="https://linkedin.com/company/kodio" target="_blank"><i class="fab fa-linkedin-in"></i></a>  
+   </div>  
+  </section>  
+  <section class="section faq">  
+   <h2>Frequently Asked Questions</h2>  
+   <div class="faq-item">  
+    <h3>How can I sign up for your platform?</h3>  
+    <p>Simply visit our <a href="/signup">signup page</a> and fill out the required information to create an account.</p>  
+   </div>  
+   <div class="faq-item">  
+    <h3>What payment methods do you accept?</h3>  
+    <p>We accept major credit cards, PayPal, and other secure payment methods.</p>  
+   </div>  
+   <div class="faq-item">  
+    <h3>How can I contact customer support?</h3>  
+    <p>You can reach our customer support team via email at <a href="mailto:support@example.com">support@example.com</a> or by calling 555-555-5555.</p>  
+   </div>  
+  </section>  
+  
+  <section class="section map">  
+   <h2>Find Us on the Map</h2>  
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.9784081835755!2d-122.3949936840503!3d37.78738447975849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064d7a084a1%3A0x6bff66d5d41809c4!2s123%20Main%20St%2C%20San%20Francisco%2C%20CA%2094140!5e0!3m2!1sen!2sus!4v1659536797558!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>  
+  </section>  
+  <script>  
+   // Add animation effects here, if desired  
+  </script>  
+</body>  
+</html>  

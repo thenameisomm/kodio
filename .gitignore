@@ -1,0 +1,49 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.p~  # backup files
+
+# === Django ===
+db.sqlite3
+*.sqlite3
+*.log
+media/
+staticfiles/  # If using collectstatic in dev
+.env  # Environment variables
+.env.*
+
+# === Virtual Environment ===
+venv/
+ENV/
+env/
+.venv/
+
+# === VS Code & JetBrains IDEs ===
+.vscode/
+.idea/
+
+# === macOS system files ===
+.DS_Store
+
+# === Test coverage, builds, dist ===
+htmlcov/
+coverage.*
+dist/
+build/
+*.egg-info/
+*.egg
+
+# === Node / frontend (if applicable) ===
+node_modules/
+*.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Temporary or system files ===
+*.bak
+*.swp
+*.tmp

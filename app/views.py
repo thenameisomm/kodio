@@ -108,25 +108,76 @@ def updateprofile(request):
 from django.shortcuts import render
 from .models import Repository
 
+
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Repository, File
+
+# View to list all repositories for the logged-in user
+@login_required
 def Repositories(request):
-    query = request.GET.get('q')
-    if query:
-        repositories = Repository.objects.filter(user=request.user, rep_name__icontains=query)
-    else:
-        repositories = Repository.objects.filter(user=request.user)
+    user = request.user
+    repositories = Repository.objects.filter(user=user)
+    return render(request, 'aftlogin/repo.html', {'repositories': repositories})
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Repository, Profile, File
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Repository, Profile, File
+
+@login_required
+def Files(request, rep_id):
+    user = request.user
+    profile = get_object_or_404(Profile, user=user)
+    repository = get_object_or_404(Repository, rep_id=rep_id, user__profile__groupid=profile.groupid)
     
-    data = []
-    for repository in repositories:
-        file_url = repository.file.url if repository.file and hasattr(repository.file, 'url') else None
-        data.append({
-            'rep_id': repository.rep_id,
-            'rep_name': repository.rep_name,
-            'rep_des': repository.rep_des,
-            'file_url': file_url,
-            'username': repository.user.username
-        })
+    repository_files = File.objects.filter(folder=repository)
     
-    return render(request, 'aftlogin/repo.html', {'repositories': data})
+    return render(request, 'aftlogin/files.html', {'repository': repository, 'files': repository_files})
+
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+
+
+def delete_file(request, file_id):
+    file = get_object_or_404(File, id=file_id)
+    file.delete()
+    messages.success(request, 'File deleted successfully.')
+    return redirect('aftlogin/files.html')  # Replace with the URL you want to redirect to after deletion
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Repository
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Repository
+
+@login_required
+def delete_repository_view(request, rep_id):
+    repository = get_object_or_404(Repository, rep_id=rep_id)
+    repository.delete()
+    return redirect('Library')  # Redirect to the library view after deletion
+
+from django.shortcuts import get_object_or_404, redirect
+from django.http import FileResponse, Http404
+from django.contrib.auth.decorators import login_required
+from .models import Repository
+
+@login_required
+def download_repository_view(request, rep_id):
+    repository = get_object_or_404(Repository, rep_id=rep_id)
+    file_path = repository.file.path  # Assuming `file` is a FileField in your model
+    try:
+        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=repository.rep_name)
+    except FileNotFoundError:
+        raise Http404("File does not exist")
+
 
 from .models import Repository
 
@@ -179,17 +230,21 @@ def Terms(request):
 def About(request):
     return render(request, 'footerpgs/about.html')
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+
 def signin(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        data = auth.authenticate(username=username, password=password)
-
-        if data is not None:
-            auth.login(request, data)
-            return redirect('Afterlogin')
-
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('Afterlogin')  # Redirect to a success page
+        else:
+            return render(request, 'signin.html', {'error': 'Invalid username or password'})
     return render(request, 'signin.html')
+
 
 from .models import Profile
 
@@ -230,6 +285,9 @@ def signup(request):
 from django.shortcuts import render
 from .models import Repository, Profile
 
+from django.shortcuts import render
+from .models import Profile, Repository
+
 def Library(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
@@ -243,18 +301,18 @@ def Library(request):
     else:
         repositories = []
 
-    data = []
-    for repository in repositories:
-        file_url = repository.file.url if repository.file and hasattr(repository.file, 'url') else None
-        data.append({
+    data = [
+        {
             'rep_id': repository.rep_id,
             'rep_name': repository.rep_name,
             'rep_des': repository.rep_des,
-            'file_url': file_url,
             'username': repository.user.username
-        })
+        }
+        for repository in repositories
+    ]
 
     return render(request, 'aftlogin/library.html', {'data': data})
+
 
 
 from django.shortcuts import render, redirect
@@ -266,12 +324,11 @@ def Create(request):
         rep_id = request.POST.get('rep_id', '')
         rep_name = request.POST.get('rep_name', '')
         rep_des = request.POST.get('rep_des', '')
-        file = request.FILES.get('file', None)  # Get the uploaded file
-      
+       
 
         # Validate and save the form data
-        if rep_id and rep_name and rep_des and file:
-            repository = Repository(rep_id=rep_id, rep_name=rep_name, rep_des=rep_des, file=file, user=request.user)
+        if rep_id and rep_name and rep_des :
+            repository = Repository(rep_id=rep_id, rep_name=rep_name, rep_des=rep_des, user=request.user)
             repository.save()
             messages.success(request, "Repository created successfully.")
             return redirect('Repositories')
@@ -280,6 +337,27 @@ def Create(request):
 
     return render(request, 'aftlogin/create.html')
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import Repository
+
+def Upload(request, rep_id):  
+   repository = get_object_or_404(Repository, rep_id=rep_id, user=request.user)  
+   if request.method == 'POST':  
+      filename = request.POST.get('filename', '')  
+      filedes = request.POST.get('filedes', '')  
+      uploaded_file = request.FILES.get('file', None)  
+      if filename and filedes and uploaded_file:  
+        new_file = File(folder=repository, filename=filename, filedes=filedes, file=uploaded_file)  
+        new_file.save()  
+        messages.success(request, "File uploaded successfully.")  
+        return redirect('Files', rep_id=rep_id)  
+      else:  
+        messages.error(request, "Please fill out all fields and upload a file.")  
+   return render(request, 'aftlogin/upload.html', {'repository': repository})
+
+   
 
 def Update(request, rep_id):
     repository = get_object_or_404(Repository, rep_id=rep_id)

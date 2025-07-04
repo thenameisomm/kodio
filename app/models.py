@@ -13,12 +13,21 @@ class Repository(models.Model):
     rep_id = models.CharField(max_length=100)
     rep_name = models.CharField(max_length=100)
     rep_des = models.TextField()
-    file = models.FileField(upload_to='repositories/')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Changed to ForeignKey
-
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     def __str__(self):
         return self.rep_name
+
+class File(models.Model):
+    file_id= models.CharField(max_length=100)
+    filename= models.CharField(max_length=100)
+    filedes= models.TextField()
+    file = models.FileField(upload_to='repositories/')
+    folder = models.ForeignKey(Repository, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.filename
 
 
 from django.contrib.auth.models import User
