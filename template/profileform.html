@@ -1,0 +1,110 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>  
+        body {  
+         background-color: #004658;  
+         display: flex;  
+         justify-content: center;  
+         align-items: center;  
+          
+         margin: 0;  
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+        }  
+        
+       .form-container {  
+         background-color: whitesmoke;  
+         border-radius: 10px;  
+         padding: 30px;  
+         padding-top: 10px;  
+         padding-bottom: 20px;  
+         max-width: 500px;  
+         width: 100%;  
+         height: 98%;  
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+        }  
+        
+        h2 {  
+         color: #004658;  
+         font-weight: bold;  
+         text-align: center;  
+         margin-bottom: 20px;  
+        }  
+        
+        label {  
+         font-size: 18px;  
+         color: #004658;  
+         margin-bottom: 10px;  
+        }  
+        
+       .inputbox,.inputarea {  
+         background-color: #e0e0e0;  
+         border: none;  
+         border-radius: 5px;  
+         width: 100%;  
+         margin-bottom: 20px;  
+         padding: 10px;  
+        }  
+        
+       .btn-custom {  
+         width: 100%;  
+         height: 45px;  
+         background-color: #004658;  
+         color: white;  
+         border: none;  
+         border-radius: 5px;  
+         font-size: 16px;  
+         cursor: pointer;  
+         margin-bottom: 10px;  
+        }  
+        
+       .btn-custom:hover {  
+         background-color: #003945;  
+        }  
+        
+       .btn-outline-custom {  
+         width: 100%;  
+         height: 45px;  
+         border: 2px solid #004658;  
+         color: #004658;  
+         background-color: whitesmoke;  
+         border-radius: 5px;  
+         font-size: 16px;  
+         cursor: pointer;  
+        }  
+        
+       .btn-outline-custom:hover {  
+         background-color: #f0f0f0;  
+        }  
+      </style>  
+        
+      <div class="form-container">  
+        <h2>User Profile</h2>  
+        <hr>  
+        <form method="post">  
+           {% csrf_token %}  
+           <label for="bio">Bio</label>  
+           <textarea required="" rows="3" name="bio" id="bio" class="inputarea">{{ profile.bio }}</textarea>  
+           <label for="hobbies">Hobbies</label>  
+           <textarea required="" rows="3" name="hobbies" id="hobbies" class="inputarea">{{ profile.hobbies }}</textarea>  
+           <label for="skill1">Skill 1</label>  
+           <input required="" value="{{ profile.skill1 }}" name="skill1" id="skill1" type="text" class="inputbox">  
+           <label for="progress1">Progress 1</label>  
+           <input required="" max="100" min="0" value="{{ profile.progress1 }}" name="progress1" id="progress1" type="number" class="inputbox">  
+           <label for="skill2">Skill 2</label>  
+           <input required="" value="{{ profile.skill2 }}" name="skill2" id="skill2" type="text" class="inputbox">  
+           <label for="progress2">Progress 2</label>  
+           <input required="" max="100" min="0" value="{{ profile.progress2 }}" name="progress2" id="progress2" type="number" class="inputbox">  
+           <label for="skill3">Skill 3</label>  
+           <input required="" value="{{ profile.skill3 }}" name="skill3" id="skill3" type="text" class="inputbox">  
+           <label for="progress3">Progress 3</label>  
+           <input required="" max="100" min="0" value="{{ profile.progress3 }}" name="progress3" id="progress3" type="number" class="inputbox">  
+           <button class="btn-custom" type="submit">Save Profile</button>  
+        </form>  
+     </div> 
+      </html>

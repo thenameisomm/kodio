@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .search-bar {
+            
+            gap: 10px;
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffa500;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff9100;
+        }
+        #title{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar">
+            <h1>Find jobs</h1><br><br>
+            <input type="text" placeholder="Search for jobs by title or keyword" id="title"><br><br>
+            <input type="text" placeholder="Location">
+            <button><i class="fas fa-search">Search</i></button>
+        </div>
+    </div>
+</body>
+</html>

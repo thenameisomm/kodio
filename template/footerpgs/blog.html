@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blog page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb29.png");
+            background-size: cover;   
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+         }
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        a {
+        text-decoration: none;
+        color: #337ab7;
+        }
+        a:hover {
+        color: #23527c;
+        }
+        ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+        li {
+        margin-bottom: 10px;
+        }
+        /* Blog Post Styles */
+        .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+        .blog-posts article {
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px;
+        width: calc(33.33% - 40px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-posts h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        }
+        .blog-posts p {
+        margin-bottom: 20px;
+        }
+        .read-more {
+        display: block;
+        width: 100%;
+        background-color: #337ab7;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .read-more:hover {
+        background-color: #23527c;
+        }
+        /* Categories and Tags Styles */
+        .categories, .tags {
+        margin-top: 40px;
+        }
+        .categories ul, .tags ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+        .categories li, .tags li {
+        margin-right: 20px;
+        }
+        .categories a, .tags a {
+        color: #337ab7;
+        }
+        .categories a:hover, .tags a:hover {
+        color: #23527c;
+        }
+        /* Subscribe Styles */
+        .subscribe {
+        margin-top: 40px;
+        background-color: #337ab7;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        }
+        .subscribe input[type="email"] {
+        padding: 10px;
+        width:600px;
+        border: none;
+        border-radius: 5px;
+        }
+        .subscribe button[type="submit"] {
+        background-color: #23527c;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .subscribe button[type="submit"]:hover {
+        background-color: #1a1d23;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 style="text-align: center;">Kodio Blog</h1>
+        <p style="text-align: center;">Stay up-to-date with the latest news, tips, and trends from Kodio.</p>
+    </div>
+    <hr>
+    <h1>Latest Posts</h1>
+    <div class="blog-posts">
+        <section class="blog-posts">
+            <article>
+                <h2><a href="#">The Future of Coding: How Collaboration is Revolutionizing the Industry</a></h2>
+                <p>In this post, we explore the benefits of collaborative coding and how it's changing the way developers work together. From improved code quality to increased productivity, we dive into the advantages of coding with others.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article>
+                    <h2><a href="#">5 Tips for Effective Code Review on Kodio</a></h2>
+                    <p>Code review is an essential part of the collaborative coding process. In this post, we share our top 5 tips for conducting effective code reviews on Kodio, from providing constructive feedback to using our built-in commenting system.</p>
+                    <a href="#" class="read-more">Read More</a>
+            </article>
+            <article>
+                <h2><a href="#">Kodio User Spotlight: Meet Jane Doe, Freelance Developer</a></h2>
+                    <p>In our latest user spotlight, we chat with Jane Doe, a freelance developer who's been using Kodio to collaborate with clients and other developers. Learn how Jane uses Kodio to streamline her workflow and deliver high-quality code.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                <article>
+                    <h2><a href="#">New Feature Alert: Real-Time Collaboration is Here!</a></h2>
+                    <p>We're excited to announce the launch of real-time collaboration on Kodio! With this new feature, you can work with others in real-time, making it easier than ever to collaborate on coding projects.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                <article>
+                    <h2><a href="#">How Kodio is Helping to Increase Diversity in Tech</a></h2>
+                    <p>At Kodio, we're passionate about increasing diversity in the tech industry. In this post, we explore how our platform is helping to make coding more accessible to underrepresented groups, and what we're doing to promote diversity and inclusion.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+        </section>
+        
+        <section class="categories">
+            <h1>Categories</h1>
+            <ul>
+                <li><a href="#">Collaborative Coding</a></li>
+                <li><a href="#">Code Review</a></li>
+                <li><a href="#">User Spotlight</a></li>
+                <li><a href="#">New Features</a></li>
+                <li><a href="#">Industry Trends</a></li>
+            </ul>
+        </section>
+        <section class="tags">
+            <h1>Tags</h1>
+            <ul>
+                <li><a href="#">Collaboration</a></li>
+                <li><a href="#">Code Quality</a></li>
+                <li><a href="#">Productivity</a></li>
+                <li><a href="#">Diversity in Tech</a></li>
+                <li><a href="#">Real-Time Collaboration</a></li>
+            </ul>
+        </section>
+
+        <section class="subscribe">
+            <h1>Subscribe to Our Blog</h1>
+            <p>Stay up-to-date with the latest news, tips, and trends from Kodio. Enter your email address below to subscribe to our blog.</p>
+            <form>
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>

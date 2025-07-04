@@ -1,0 +1,115 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #004658;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 5px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container {
+            background-color: whitesmoke;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 95%;
+            
+        }
+        #color {
+            font-size: 40px;
+            text-align: center;
+            color: #004658;
+            margin-bottom: 20px;
+        }
+        hr {
+            margin-bottom: 20px;
+        }
+        .form-item input {
+            height: 45px;
+            width: 100%;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .form-btns button {
+            font-size: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #004658;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+        }
+        .form-btns button:hover {
+            background: #003945;
+        }
+        .options {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .options a {
+            color: #004658;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .options a:hover {
+            text-decoration: underline;
+        }
+        p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <h2 id="color">Sign up</h2>
+            <hr>
+            <div class="form-item">
+                <input type="text" name="Name" id="Name" placeholder="Name">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="number" name="group" id="group" placeholder="Group ID">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="password" name="pass1" id="pass1" placeholder="Password">
+                <input type="password" name="pass2" id="pass2" placeholder="Confirm Password">
+            </div>
+            <div class="form-btns">
+                <button class="signup" type="submit">Sign Up</button>
+            </div>
+            <div class="options">
+                Already have an account? <a href="{% url 'signin' %}">Login here</a>
+            </div>
+            <p>Copyright &copy; Kodio.com</p>
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+            var errorMessage = "{{ error|escapejs }}";
+            if (errorMessage) {
+                alert(errorMessage);
+            }
+        }
+    </script>
+</body>
+</html>

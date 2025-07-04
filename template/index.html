@@ -1,0 +1,759 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kodio Homepage</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <style>
+    .cards-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .card {
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+      border-radius: 0;
+      border-radius: 45px;
+    }
+
+    .carousel-inner {
+      padding: 1em;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      background-color: #e1e1e1;
+      width: 5vh;
+      height: 5vh;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (min-width: 768px) {
+      .card img {
+        height: 11em;
+      }
+    }
+
+    body {
+      background-color: white;
+    }
+
+    .container {
+      width: 1200px !important;
+      padding: 0 !important;
+      display: flex;
+
+
+      @media screen and (min-width: 992px) and (max-width: 1439px) {
+        max-width: 1279px !important;
+        padding: 0 !important;
+        margin: 35px !important;
+        width: auto !important;
+      }
+
+      @media screen and (max-width: 991px) {
+        max-width: 959px !important;
+        margin: 0 16px !important;
+        padding: 0 !important;
+        width: auto !important;
+      }
+    }
+
+    .gradient-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      padding: 30px;
+
+      @media screen and (max-width: 991px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .container-title {
+      text-align: center;
+      padding: 0 !important;
+      margin-bottom: 40px;
+      font-size: 40px;
+      color: #fff;
+      font-weight: 600;
+      line-height: 60px;
+    }
+
+    .card {
+      max-width: 550px;
+      border: 0;
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .container-card {
+      position: relative;
+      border: 2px solid transparent;
+      background: linear-gradient(71deg, #080509, #1a171c, #080509);
+      background-clip: padding-box;
+      border-radius: 45px;
+      padding: 40px;
+
+      img {
+        margin-bottom: 32px;
+      }
+    }
+
+    .bg-green-box,
+    .bg-white-box,
+    .bg-yellow-box,
+    .bg-blue-box {
+      position: relative;
+    }
+
+    .bg-green-box::after,
+    .bg-white-box::after,
+    .bg-yellow-box::after,
+    .bg-blue-box::after {
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: -1px;
+      right: -1px;
+      content: "";
+      z-index: -1;
+      border-radius: 45px;
+    }
+
+    .bg-green-box::after {
+      background: linear-gradient(71deg, #0d1212, #3da077, #0d1212);
+    }
+
+    .bg-white-box::after {
+      background: linear-gradient(71deg, #121013, #b0afb0, #121013);
+    }
+
+    .bg-yellow-box::after {
+      background: linear-gradient(71deg, #110e0e, #afa220, #110e0e);
+    }
+
+    .bg-blue-box::after {
+      background: linear-gradient(71deg, #0c0a0e, #5f6fad, #0c0a0e);
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 40px;
+      font-style: normal;
+      font-size: 28px;
+      padding-bottom: 8px;
+    }
+
+    .card-description {
+      font-weight: 600;
+      line-height: 32px;
+      color: hsla(0, 0%, 100%, 0.5);
+      font-size: 16px;
+      max-width: 470px;
+    }
+
+    .ag-format-container {
+      width: 1142px;
+      margin: 0 auto;
+    }
+
+
+
+    .ag-courses_box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
+      padding: 50px 0;
+    }
+
+    .ag-courses_item {
+      -ms-flex-preferred-size: calc(33.33333% - 30px);
+      flex-basis: calc(33.33333% - 30px);
+
+      margin: 0 15px 30px;
+
+      overflow: hidden;
+
+      border-radius: 28px;
+    }
+
+    .ag-courses-item_link {
+      display: block;
+      padding: 30px 20px;
+      background-color: #121212;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .ag-courses-item_link:hover,
+    .ag-courses-item_link:hover .ag-courses-item_date {
+      text-decoration: none;
+      color: #FFF;
+    }
+
+    .ag-courses-item_link:hover .ag-courses-item_bg {
+      -webkit-transform: scale(10);
+      -ms-transform: scale(10);
+      transform: scale(10);
+    }
+
+    .ag-courses-item_title {
+      min-height: 87px;
+      margin: 0 0 25px;
+
+      overflow: hidden;
+
+      font-weight: bold;
+      font-size: 30px;
+      color: #FFF;
+
+      z-index: 2;
+      position: relative;
+
+    }
+
+    .ag-courses-item_date-box {
+      font-size: 18px;
+      color: #FFF;
+
+      z-index: 2;
+      position: relative;
+    }
+
+    .ag-courses-item_date {
+      font-weight: bold;
+      color: #f9b234;
+
+      -webkit-transition: color .5s ease;
+      -o-transition: color .5s ease;
+      transition: color .5s ease
+    }
+
+    .ag-courses-item_bg {
+      height: 128px;
+      width: 128px;
+      background-color: #f9b234;
+
+      z-index: 1;
+      position: absolute;
+      top: -75px;
+      right: -75px;
+
+      border-radius: 50%;
+
+      -webkit-transition: all .5s ease;
+      -o-transition: all .5s ease;
+      transition: all .5s ease;
+    }
+
+    .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+      background-color: #3ecd5e;
+    }
+
+    .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+      background-color: #e44002;
+    }
+
+    .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+      background-color: #952aff;
+    }
+
+    .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+      background-color: #cd3e94;
+    }
+
+    .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+      background-color: #4c49ea;
+    }
+
+
+
+    @media only screen and (max-width: 979px) {
+      .ag-courses_item {
+        -ms-flex-preferred-size: calc(50% - 30px);
+        flex-basis: calc(50% - 30px);
+      }
+
+      .ag-courses-item_title {
+        font-size: 24px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .ag-format-container {
+        width: 96%;
+      }
+
+    }
+
+    @media only screen and (max-width: 639px) {
+      .ag-courses_item {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+      }
+
+      .ag-courses-item_title {
+        min-height: 72px;
+        line-height: 1;
+
+        font-size: 24px;
+      }
+
+      .ag-courses-item_link {
+        padding: 22px 40px;
+      }
+
+      .ag-courses-item_date-box {
+        font-size: 16px;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .pg-footer {
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+    .footer {
+      background-color: #004658;
+      color: #fff;
+    }
+
+    .footer-wave-svg {
+      background-color: transparent;
+      display: block;
+      height: 30px;
+      position: relative;
+      top: -1px;
+      width: 100%;
+    }
+
+    .footer-wave-path {
+      fill: #fffff2;
+    }
+
+    .footer-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1230px;
+      padding: 40px 15px 450px;
+      position: relative;
+    }
+
+    .footer-content-column {
+      box-sizing: border-box;
+      float: left;
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+      color: #fff;
+    }
+
+    .footer-content-column ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+    }
+
+    .footer-menu {
+      margin-top: 30px;
+    }
+
+    .footer-menu-name {
+      color: #fffff2;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 18px;
+      margin-bottom: 0;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .footer-menu-list {
+      list-style: none;
+      margin-bottom: 0;
+      margin-top: 10px;
+      padding-left: 0;
+    }
+
+    .footer-menu-list li {
+      margin-top: 5px;
+    }
+
+    .footer-call-to-action-description {
+      color: #fffff2;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-call-to-action-button:hover {
+      background-color: #fffff2;
+      color: #00bef0;
+    }
+
+    .button:last-of-type {
+      margin-right: 0;
+    }
+
+    .footer-call-to-action-button {
+      background-color: #027b9a;
+      border-radius: 21px;
+      color: #fffff2;
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 18px;
+      padding: 12px 30px;
+      margin: 0 10px 10px 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .footer-call-to-action {
+      margin-top: 30px;
+    }
+
+    .footer-call-to-action-title {
+      color: #fffff2;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 18px;
+      margin-bottom: 0;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .footer-call-to-action-link-wrapper {
+      margin-bottom: 0;
+      margin-top: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-call-to-action-link-wrapper a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hidden-link-text {
+      position: absolute;
+      clip: rect(1px 1px 1px 1px);
+      clip: rect(1px, 1px, 1px, 1px);
+      -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+      clip-path: inset(0px 0px 99.9% 99.9%);
+      overflow: hidden;
+      height: 1px;
+      width: 1px;
+      padding: 0;
+      border: 0;
+      top: 50%;
+    }
+
+    /* Media Query For different screens */
+    @media (min-width:320px) and (max-width:479px) {
+
+      /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+      .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+        padding: 40px 15px 1050px;
+        position: relative;
+      }
+    }
+
+    @media (min-width:480px) and (max-width:599px) {
+
+      /* smartphones, Android phones, landscape iPhone */
+      .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+        padding: 40px 15px 1050px;
+        position: relative;
+      }
+    }
+
+    @media (min-width:600px) and (max-width: 800px) {
+
+      /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+      .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+        padding: 40px 15px 1050px;
+        position: relative;
+      }
+    }
+
+    @media (min-width:801px) {
+      /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+    }
+
+    @media (min-width:1025px) {
+      /* big landscape tablets, laptops, and desktops */
+
+    }
+
+    @media (min-width:1281px) {
+      /* hi-res laptops and desktops */
+
+    }
+
+
+
+
+    @media (min-width: 760px) {
+      .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+        padding: 40px 15px 450px;
+        position: relative;
+      }
+
+      .footer-wave-svg {
+        height: 50px;
+      }
+
+      .footer-content-column {
+        width: 24.99%;
+      }
+    }
+
+    @media (min-width: 568px) {
+      /* .footer-content-column {
+      width: 49.99%;
+  } */
+    }
+
+    .column_with_image {
+      font: 15px Arial, sans-serif;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 48px;
+      margin-left: 20px;
+      margin-top: 25%;
+
+    }
+
+    .btn-mode {
+      background-color: black;
+      color: white;
+      border-color: black;
+    }
+
+    .btn-mode:hover,
+    .btn-mode:focus {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
+
+    .btn-mode-rounded {
+      border-radius: 5px;
+    }
+
+    .img-fluid {
+      margin: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-transparentho m-2 p-2 " style="height: 80px; ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{%static 'images/logo.png' %}" alt="Bootstrap" width="80" height="80">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fs-4" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-4" href="{%url 'About'%}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-4" href="{%url 'Contact'%}">Contact Us</a>
+          </li>
+        </ul>
+        <a href="{%url 'signin'%}"><button type="button" class="btn btn-outline-primary" data-mdb-ripple-init
+          data-mdb-ripple-color="dark">Sign-in</button></a>
+        <a href="{%url 'signup'%}"><button type="button" class="btn btn-primary m-2" data-mdb-ripple-init>Sign Up</button></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="display: flex; "></div>
+  <div class="row" style="margin-left: 25px; margin-bottom: 20px;">
+    <div class="col-md-6">
+      <img src="{%static 'images/img.svg'%}" class="img-fluid" alt="Image description"
+        style="display: flex; width: 648; height: 532;">
+    </div>
+
+    <div class="col-md-6">
+      <h1 class="column_with_image">Balance speed and security in a single platform</h1>
+      <p style="font: 20px Arial, sans-serif; color: grey;">Automate software delivery, boost productivity, and secure
+        your end-to-end software supply chain.</p>
+        <a href="{%url 'signup'%}">
+        <button type="button" class="btn btn-mode btn-mode-rounded"
+        style="width: 350px; height: 50px; font: 20px Arial, sans-serif;"><b>Discover the platform</b></button></a>
+
+
+    </div>
+  </div>
+
+  </div>
+
+  <div class="ag-format-container">
+    <div class="ag-courses_box">
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Effortlessly Streamline Your Workflow
+          </div>
+
+
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Unleash the Power of Collaboration
+          </div>
+
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Version Control Made Simple
+          </div>
+
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Automate for Efficiency
+          </div>
+
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Stay Secure, Stay Focused
+          </div>
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Embrace the power of open source.
+          </div>
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg">
+          </div>
+          <div class="ag-courses-item_title">
+            Project Management at Your Fingertips
+          </div>
+        </a>
+      </div>
+
+      <div class="ag-courses_item">
+        <a href="#" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            Issue Tracking Made Easy
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  {%include 'footerpgs/footer.html'%}
+
+</body>
+
+</html>

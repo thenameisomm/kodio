@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reviews page</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+            background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb29.png");
+            background-size: cover;   
+            margin:0;
+            padding:0;
+    }
+    .review {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+    .review-header {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .review-rating {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .review-text {
+      font-size: 14px;
+      color: #333;
+    }
+    form{
+        text-align: left;
+        background-color: white;
+        width: 500px;
+        height: 400px;
+        margin-left: 400px;
+        border:2px solid rgb(239, 210, 210);
+        border-radius: 5px;
+        padding-left: 20px;
+    }
+    input[type="submit"]{
+            border-radius: 5px;
+            margin-left: 150px;
+            padding: 10px 20px;
+            background-color: #ffa500;
+            color: white;
+            cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Collaborative Coding Platform Reviews</h1>
+    <div class="review">
+        <div class="review-header">Review: Kodio</div>
+        <div class="review-rating">4.5/5</div>
+        <div class="review-text">Kodio is an excellent collaborative coding platform. The interface is intuitive and the features are robust. I've used it for several projects and it's been a game-changer. The only thing I wish it had was more customization options for the interface.</div>
+    </div>
+    <div class="review">
+        <div class="review-header">Review: Kodio</div>
+        <div class="review-rating">4/5</div>
+        <div class="review-text">kodioLab is a great alternative to Kodio. It has many of the same features, but with a more affordable pricing model. The interface can be a bit clunky at times, but overall it's a solid choice for collaborative coding.</div>
+    </div>
+    <div class="review">
+        <div class="review-header">Review: kodio</div>
+        <div class="review-rating">4.5/5</div>
+        <div class="review-text">kodioBucket is a great choice for collaborative coding. The interface is clean and intuitive, and the features are robust. I've used it for several projects and it's been a pleasure to work with. The only thing I wish it had was more integrations with other development tools.</div>
+    </div><br><br>
+    <!-- Add more reviews here -->
+    <form>
+        <h2 style="text-align: center;">Leave a Review</h2>
+        <label for="platform">Collaborative Coding Platform:</label>
+        <select id="platform" name="platform">
+            <option value="Kodio">Kodio</option>
+            <option value="KodioLab">KodioLab</option>
+            <option value="Kodiobucket">Kodiobucket</option>
+            <option value="Other">Other (please specify)</option>
+        </select>
+        <br><br>
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+            <option value="1">1/5</option>
+            <option value="2">2/5</option>
+            <option value="3">3/5</option>
+            <option value="4">4/5</option>
+            <option value="5">5/5</option>
+        </select>
+        <br><br>
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" rows="5"></textarea>
+        <br><br>
+        <input type="submit" value="Submit Review">
+    </form>
+</body>
+</html>
